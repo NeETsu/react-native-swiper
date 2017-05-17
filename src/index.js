@@ -316,8 +316,6 @@ export default class extends Component {
       (index === 0 || index === children.length - 1)) {
       this.internals.isScrolling = false
     }
-    console.log('New Offset ' + newOffset)
-    console.log('Index ' + index)
     //if (newOffset <  200 ){
     //this.onScrollEnd(e)
   //}
@@ -335,7 +333,8 @@ export default class extends Component {
   this.updateIndex(e.nativeEvent.contentOffset, this.state.dir, () => {
     this.autoplay()
     this.loopJump()
-
+    console.log('New Offset ' + newOffset)
+    console.log('Index ' + index)
   this.props.onMomentumScrollEnd && this.props.onMomentumScrollEnd(e, this.fullState(), this)
 })
   }
