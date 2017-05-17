@@ -311,29 +311,13 @@ export default class extends Component {
     const { offset } = this.internals
     const previousOffset = horizontal ? offset.x : offset.y
     const newOffset = horizontal ? contentOffset.x : contentOffset.y
-    console.log('Here I am once again ' + index)
 
     if (previousOffset === newOffset &&
       (index === 0 || index === children.length - 1)) {
       this.internals.isScrolling = false
     }
-    if (!e.nativeEvent.contentOffset) {
-      if (this.state.dir === 'x') {
-        e.nativeEvent.contentOffset = {x: e.nativeEvent.position * this.state.width}
-      } else {
-        e.nativeEvent.contentOffset = {y: e.nativeEvent.position * this.state.height}
-      }
-    }
-
-    this.updateIndex(e.nativeEvent.contentOffset, this.state.dir, () => {
-      this.autoplay()
-      this.loopJump()
-
-      // if `onMomentumScrollEnd` registered will be called here
-      this.props.onMomentumScrollEnd && this.props.onMomentumScrollEnd(e, this.fullState(), this)
-    })
-
-
+    console.log('New Offset ' + newOffset)
+    this.onScrollEnd()
   }
 
   /**
@@ -572,7 +556,7 @@ export default class extends Component {
           contentOffset={this.state.offset}
           onScrollBeginDrag={this.onScrollBegin}
           onMomentumScrollEnd={this.onScrollEnd}
-          onScrollEndDrag={this.onScrollEnd}>
+          onScrollEndDrag={this.onScrollEndDrag}>
           {pages}
         </ScrollView>
        )
