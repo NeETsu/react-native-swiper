@@ -305,6 +305,13 @@ export default class extends Component {
    * @param {object} e native event
    */
   onScrollEndDrag = e => {
+      this.updateIndex(e.nativeEvent.contentOffset, this.state.dir, () => {
+      this.autoplay()
+      this.loopJump()
+
+      // if `onMomentumScrollEnd` registered will be called here
+      console.log('Offset ' + this.state.offset)
+    })
     const { contentOffset } = e.nativeEvent
     const { horizontal, children } = this.props
     const { index } = this.state
@@ -312,10 +319,13 @@ export default class extends Component {
     const previousOffset = horizontal ? offset.x : offset.y
     const newOffset = horizontal ? contentOffset.x : contentOffset.y
     console.log('Here I am once again ' + index)
+
     if (previousOffset === newOffset &&
       (index === 0 || index === children.length - 1)) {
       this.internals.isScrolling = false
     }
+    
+     
   }
 
   /**
