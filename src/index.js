@@ -318,7 +318,9 @@ export default class extends Component {
     }
     console.log('New Offset ' + newOffset)
     console.log('Index ' + index)
+    if (newOffset > 200){
     this.onScrollEnd(e)
+  }
   }
 
   /**
