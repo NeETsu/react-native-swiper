@@ -311,7 +311,7 @@ export default class extends Component {
     const { offset } = this.internals
     const previousOffset = horizontal ? offset.x : offset.y
     const newOffset = horizontal ? contentOffset.x : contentOffset.y
-
+    console.log('Here I am once again ' + index)
     if (previousOffset === newOffset &&
       (index === 0 || index === children.length - 1)) {
       this.internals.isScrolling = false
