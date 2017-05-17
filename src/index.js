@@ -320,15 +320,8 @@ export default class extends Component {
     console.log('Previous Offset ' + previousOffset)
     console.log('contentOffset ' + JSON.stringify(contentOffset))
 
-contentOffset['x']=newOffset
-    this.updateIndex(newOffset, this.state.dir, () => {
-
-console.log('Index ' + index)
-      // if `onMomentumScrollEnd` registered will be called here
-      this.props.onMomentumScrollEnd && this.props.onMomentumScrollEnd(e, this.fullState(), this)
-    })
     //if (newOffset <  200 ){
-    //this.onScrollEnd(e)
+    this.onScrollEnd(e)
   //}
   }
 
