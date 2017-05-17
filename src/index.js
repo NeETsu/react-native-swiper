@@ -320,7 +320,7 @@ export default class extends Component {
     console.log('Previous Offset ' + previousOffset)
     console.log('contentOffset ' + JSON.stringify(contentOffset))
 
-
+contentOffset['x']=newOffset
     this.updateIndex(newOffset, this.state.dir, () => {
       this.autoplay()
       this.loopJump()
