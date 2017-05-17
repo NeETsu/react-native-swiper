@@ -337,7 +337,7 @@ export default class extends Component {
     this.loopJump()
 
   this.props.onMomentumScrollEnd && this.props.onMomentumScrollEnd(e, this.fullState(), this)
-
+})
   }
 
   /**
