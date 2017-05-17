@@ -321,6 +321,21 @@ export default class extends Component {
     //if (newOffset <  200 ){
     //this.onScrollEnd(e)
   //}
+  this.internals.isScrolling = false
+
+  // making our events coming from android compatible to updateIndex logic
+  if (!e.nativeEvent.contentOffset) {
+    if (this.state.dir === 'x') {
+      e.nativeEvent.contentOffset = {x: e.nativeEvent.position * this.state.width}
+    } else {
+      e.nativeEvent.contentOffset = {y: e.nativeEvent.position * this.state.height}
+    }
+  }
+
+  this.updateIndex(e.nativeEvent.contentOffset, this.state.dir, () => {
+    this.autoplay()
+    this.loopJump()
+
   this.props.onMomentumScrollEnd && this.props.onMomentumScrollEnd(e, this.fullState(), this)
 
   }
