@@ -322,8 +322,8 @@ export default class extends Component {
 //state.width
     //previousOffset==0 && newOffset<(state.width/2)
     //previousOffset==state.width && newOffset<(state.width+(state.width/2))
-    if (!(previousOffset===0 && newOffset>(this.state.width/2))){
-      //this.onScrollEnd(e)
+    if (!(previousOffset===0 && newOffset<(this.state.width/2))){
+      this.onScrollEnd(e)
     }
   }
 
