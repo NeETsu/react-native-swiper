@@ -319,10 +319,10 @@ export default class extends Component {
     console.log('New Offset ' + newOffset)
     console.log('Previous Offset ' + previousOffset)
     console.log('contentOffset ' + JSON.stringify(contentOffset))
-state.width
+//state.width
     //previousOffset==0 && newOffset<(state.width/2)
     //previousOffset==state.width && newOffset<(state.width+(state.width/2))
-    if (!(previousOffset===0 && newOffset>(state.width/2))){
+    if (!(previousOffset===0 && newOffset>(this.state.width/2))){
       this.onScrollEnd(e)
     }
   }
