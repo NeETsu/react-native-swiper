@@ -317,7 +317,7 @@ export default class extends Component {
       this.internals.isScrolling = false
     }
     console.log('New Offset ' + newOffset)
-    this.onScrollEnd()
+    this.onScrollEnd(e)
   }
 
   /**
