@@ -310,7 +310,7 @@ export default class extends Component {
       this.loopJump()
 
       // if `onMomentumScrollEnd` registered will be called here
-      console.log('Offset ' + this.state.offset)
+      console.log('Offset ' + JSON.stringify(this.state.offset))
     })
     const { contentOffset } = e.nativeEvent
     const { horizontal, children } = this.props
