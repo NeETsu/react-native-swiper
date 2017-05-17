@@ -318,7 +318,7 @@ export default class extends Component {
     }
     console.log('New Offset ' + newOffset)
     console.log('Previous Offset ' + previousOffset)
-    console.log('contentOffset ' + contentOffset)
+    console.log('contentOffset ' + JSON.stringify(contentOffset))
     console.log('Index ' + index)
 
     this.updateIndex(e.nativeEvent.contentOffset, this.state.dir, () => {
