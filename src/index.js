@@ -305,24 +305,6 @@ export default class extends Component {
    * @param {object} e native event
    */
   onScrollEndDrag = e => {
-    // update scroll state
-    this.internals.isScrolling = false
-
-    // making our events coming from android compatible to updateIndex logic
-    if (!e.nativeEvent.contentOffset) {
-      if (this.state.dir === 'x') {
-        e.nativeEvent.contentOffset = {x: e.nativeEvent.position * this.state.width}
-      } else {
-        e.nativeEvent.contentOffset = {y: e.nativeEvent.position * this.state.height}
-      }
-    }
-      this.updateIndex(e.nativeEvent.contentOffset, this.state.dir, () => {
-      this.autoplay()
-      this.loopJump()
-
-      // if `onMomentumScrollEnd` registered will be called here
-      console.log('Offset ' + JSON.stringify(this.state.offset))
-    })
     const { contentOffset } = e.nativeEvent
     const { horizontal, children } = this.props
     const { index } = this.state
@@ -575,7 +557,7 @@ export default class extends Component {
           contentOffset={this.state.offset}
           onScrollBeginDrag={this.onScrollBegin}
           onMomentumScrollEnd={this.onScrollEnd}
-          onScrollEndDrag={this.onScrollEndDrag}>
+          onScrollEndDrag={this.onScrollEnd}>
           {pages}
         </ScrollView>
        )
