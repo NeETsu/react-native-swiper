@@ -321,7 +321,7 @@ export default class extends Component {
     console.log('contentOffset ' + JSON.stringify(contentOffset))
     console.log('Index ' + index)
 
-    this.updateIndex(e.nativeEvent.contentOffset, this.state.dir, () => {
+    this.updateIndex(newOffset, this.state.dir, () => {
       this.autoplay()
       this.loopJump()
 
@@ -329,7 +329,7 @@ export default class extends Component {
       this.props.onMomentumScrollEnd && this.props.onMomentumScrollEnd(e, this.fullState(), this)
     })
     //if (newOffset <  200 ){
-    this.onScrollEnd(e)
+    //this.onScrollEnd(e)
   //}
   }
 
@@ -346,7 +346,7 @@ export default class extends Component {
     let loopJump = false
 
     // Do nothing if offset no change.
-    //if (!diff) return
+    if (!diff) return
 
     // Note: if touch very very quickly and continuous,
     // the variation of `index` more than 1.
